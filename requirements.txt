@@ -1,0 +1,7 @@
+aiogram
+asyncpg
+pydantic
+youtube-search-python==1.6.2
+lxml
+bs4
+pytube

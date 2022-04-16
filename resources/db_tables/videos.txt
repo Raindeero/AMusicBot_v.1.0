@@ -1,0 +1,49 @@
+CREATE TABLE videos (
+increment INTEGER PRIMARY KEY AUTOINCREMENT,
+id TEXT UNIQUE,
+link TEXT NOT NULL,
+title TEXT NOT NULL,
+channel TEXT NOT NULL,
+duration TEXT NOT NULL,
+views INTEGER NOT NULL,
+thumbnails TEXT NOT NULL,
+channeid TEXT NOT NULL,
+publishtime TEXT NOT NULL,
+dt TEXT NOT NULL
+)
+
+drop table videos
+
+
+CREATE TABLE user_music_collection (
+uid INTEGER,
+playlist_id INTEGER AUTOINCREMENT,
+FOREIGN KEY (playlist_id) REFERENCES playlist(playlist_id)
+)
+
+
+CREATE TABLE playlist (
+playlist_id INTEGER PRIMARY KEY,
+file_id INTEGER
+)
+
+CREATE TABLE playlists (
+uid INTEGER NOT NULL,
+playlist_id INTEGER PRIMARY KEY AUTOINCREMENT,
+playlist_name TEXT NOT NULL,
+playlist_caption TEXT DEFAULT ''
+)
+
+CREATE TABLE playlists_content (
+playlist_id INTEGER NOT NULL,
+file_id INTEGER NOT NULL,
+FOREIGN KEY (playlist_id) REFERENCES playlists(playlist_id)
+)
+
+CREATE TABLE playlists_content (
+playlist_id INTEGER NOT NULL,
+file_id TEXT NOT NULL,
+title TEXT NOT NULL,
+duration INTEGER NOT NULL,
+place INTEGER PRIMARY KEY
+)
